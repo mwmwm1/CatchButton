@@ -1,3 +1,5 @@
+using System.Media;
+
 namespace CatchButton
 {
     public partial class Form1 : Form
@@ -14,12 +16,14 @@ namespace CatchButton
             int y = rand.Next(0, this.ClientSize.Height - RunningButton.Height);//랜덤으로 Y좌표 생성, 버튼이 폼밖으로 나가지 않도록 설정
 
             RunningButton.Location = new Point(x, y);//버튼 위치 변경
+            SystemSounds.Beep.Play();
             this.Text = $"버튼 위치 - X: {x}, Y: {y}";//폼 제목을 버튼의 위치로 업데이트
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            SystemSounds.Asterisk.Play();
+            MessageBox.Show("축하합니다~!");
         }
     }
 }
